@@ -22,10 +22,10 @@ Der Fokus liegt auf:
 
 > Fokus des Projekts: Editor + Live-PDF-Vorschau
 
-![Editor](docs/screenshots/editor_preview.png)
+![Editor](docs/screenshots/editor_preview.PNG)
 
 
-![PDF Preview](docs/screenshots/pdf_preview.png)
+![PDF Preview](docs/screenshots/pdf_preview.PNG)
 
 ---
 
