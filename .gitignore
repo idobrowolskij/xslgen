@@ -1,0 +1,21 @@
+# --- Java / Spring ---
+backend/target/
+backend/.idea/
+backend/*.iml
+backend/.classpath
+backend/.project
+backend/.settings/
+backend/.mvn
+backend/storage/
+
+# --- Node / Angular ---
+frontend/node_modules/
+frontend/dist/
+frontend/.angular/
+frontend/.cache/
+frontend/.idea/
+frontend/*.iml
+
+# --- OS ---
+.DS_Store
+Thumbs.db

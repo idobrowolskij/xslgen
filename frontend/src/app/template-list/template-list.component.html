@@ -1,0 +1,30 @@
+<div class="px-10 py-4 flex flex-col items-center">
+<table class="w-[70%] bg-white shadow rounded-lg overflow-hidden" *ngIf="templates$ | async as templates">
+  <thead class="bg-gray-100 text-left text-sm font-medium text-gray-600">
+    <tr>
+      <th class="px-4 py-2">Name</th>
+      <th class="px-4 py-2">Created</th>
+      <th class="px-4 py-2">Updated</th>
+      <th class="px-4 py-2">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let t of templates" class="group border-t hover:bg-[rgb(33,33,33)] hover:text-white">
+      <td class="px-4 py-2">{{ t.name }}</td>
+      <td class="px-4 py-2">{{ t.createdAt | date:'dd.MM.yyyy hh:mm a' }}</td>
+      <td class="px-4 py-2">{{ t.updatedAt| date:'dd.MM.yyyy hh:mm a' }}</td>
+      <td class="px-4 py-2 space-x-2 flex justify-start">
+        <a (click)="edit(t.id!)" class="hover:underline text-gray-700 group-hover:text-white cursor-pointer">
+            <lucide-icon class="text-gray-700 group-hover:text-white" [img]="FilePenLine"></lucide-icon>
+            Edit</a>
+        <a (click)="delete(t.id!)" class="text-gray-700 group-hover:text-white hover:underline cursor-pointer">
+            <lucide-icon class="text-gray-700 group-hover:text-white" [img]="Delete"></lucide-icon>
+            Delete</a>
+        <a (click)="preview(t.id!)" class="text-gray-700 group-hover:text-white hover:underline cursor-pointer">
+            <lucide-icon class="text-gray-700 group-hover:text-white" [img]="Eye"></lucide-icon>
+            Preview</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>

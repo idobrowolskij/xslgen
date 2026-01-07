@@ -1,0 +1,33 @@
+<div class="px-10 py-4">
+    <div class="flex items-center justify-start px-4 space-x-2 bg-[rgb(30,30,30)] h-10">
+        <span (click)="onSave()" class="text-white text-[10px] flex flex-col items-center">
+            <lucide-icon class="text-white h-5" [img]="saveIcon"></lucide-icon>
+            Save
+        </span>
+        <span (click)="switchMode('xml')" class="text-white text-[10px] flex flex-col items-center">
+            <lucide-icon class="text-white h-5" [img]="xmlIcon"></lucide-icon>
+            XML
+        </span>
+        <span (click)="switchMode('xsl')" class="text-white text-[10px] flex flex-col items-center">
+            <lucide-icon class="text-white h-5" [img]="xslIcon"></lucide-icon>
+            XSL
+        </span>
+        <span (click)="onValidate()" class="text-white text-[10px] flex flex-col items-center">
+            <lucide-icon class="text-white h-5" [img]="validateIcon"></lucide-icon>
+            Validate
+        </span>
+        <span (click)="onTransform()" class="text-white text-[10px] flex flex-col items-center">
+            <lucide-icon class="text-white h-5" [img]="transformIcon"></lucide-icon>
+            Transform
+        </span>
+        <span [routerLink]="['../../../transform/preview/', templateId]" class="text-white text-[10px] flex flex-col items-center">
+            <lucide-icon class="text-white h-5" [img]="previewPdfIcon"></lucide-icon>
+            Preview
+        </span>
+    </div>
+    <ngx-monaco-editor style="height: 700px; margin: 0; padding: 0;" [options]="editorOptions" [(ngModel)]="code" (onInit)="onEditorInit($event)"></ngx-monaco-editor>
+    <div class="bg-[rgb(24,24,24)] h-20 flex flex-col items-start justify-center overflow-y-auto">
+        <p *ngFor="let logMsg of log" class="text-white font-mono text-sm px-4">{{logMsg}}</p>
+    </div>
+</div>
+

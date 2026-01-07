@@ -1,0 +1,64 @@
+<nav *ngIf="auth.isLoggedIn()" class="flex items-center justify-between bg-neutral-800 rounded-xl h-15 mx-10 shadow px-4">
+
+  <!-- LEFT: Logo + Navigation -->
+  <div class="flex items-center space-x-4">
+    <p class="text-white font-mono font-bold flex items-center gap-2">
+      <lucide-icon [img]="FileCode2"></lucide-icon>
+      xslgen
+    </p>
+
+    <a
+      routerLink="home"
+      routerLinkActive="text-gray-300"
+      class="text-white px-4 py-2 hover:text-gray-300 flex items-center gap-2"
+    >
+      <lucide-icon [img]="House"></lucide-icon>
+      Home
+    </a>
+
+    <a
+      routerLink="transform"
+      routerLinkActive="text-gray-300"
+      class="text-white py-2 hover:text-gray-300 flex items-center gap-2"
+    >
+      <lucide-icon [img]="FileCog"></lucide-icon>
+      Transform
+    </a>
+
+    <a
+      routerLink="templates"
+      routerLinkActive="text-gray-300"
+      class="text-white py-2 hover:text-gray-300 flex items-center gap-2"
+    >
+      <lucide-icon [img]="Files"></lucide-icon>
+      Templates
+    </a>
+  </div>
+
+  <!-- RIGHT: User Dropdown (nur wenn eingeloggt) -->
+  <div *ngIf="auth.isLoggedIn()" class="relative">
+    <button
+      (click)="toggle()"
+      class="flex items-center gap-2 text-white px-3 py-2 rounded-lg hover:bg-neutral-700 transition"
+    >
+      <lucide-icon [img]="User"></lucide-icon>
+      <span class="text-sm font-medium">{{ auth.getUsername() }}</span>
+      <lucide-icon [img]="ChevronDown" class="w-4 h-4"></lucide-icon>
+    </button>
+
+    <!-- Dropdown -->
+    <div
+      *ngIf="open"
+      class="absolute right-0 mt-2 w-40 bg-neutral-900 border border-neutral-700 rounded-lg shadow-lg z-50"
+    >
+      <button
+        (click)="logout()"
+        class="w-full flex items-center gap-2 px-4 py-2 text-sm text-white hover:bg-neutral-700 text-left"
+      >
+        <lucide-icon [img]="LogOut"></lucide-icon>
+        Logout
+      </button>
+    </div>
+  </div>
+
+</nav>
