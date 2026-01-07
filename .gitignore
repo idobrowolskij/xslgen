@@ -19,3 +19,5 @@ frontend/*.iml
 # --- OS ---
 .DS_Store
 Thumbs.db
+
+.idea/
